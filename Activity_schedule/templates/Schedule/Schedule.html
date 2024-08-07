@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href={% static "images/favicon.ico" %}>
+    <link rel="stylesheet" href={% static "css/styles.css" %}>
+    <script src={% static "js/scripts.js" %}></script>
+    <title>Agenda de Eventos</title>
+</head>
+<body>
+    <header>
+        <h1>Agenda de Eventos</h1>
+        
+    </header>
+    <section class="content">
+        <div class="event">
+
+            <div class="event-id">
+                <h3>#</h3>
+            </div>
+            
+            <div class="event-main">
+
+                <h3 class="content-field-header">Titulo</h3>
+                <h3 class="content-field-header">Tipo</h3>
+                <h3 class="content-field-header">Data de inicio</h3>
+                <h3 class="content-field-header">Local</h3>
+                <h3 class="content-field-header">Cidade</h3>
+
+            </div>
+
+            <div class="event-options">
+                <h3>Ações</h3>
+            </div>
+        </div>
+        {% for event in activity %}
+        <div class="event">
+            <div class="event-id">
+                {{event.id}}
+            </div>
+            <div class="event-main">
+                
+                <p class="content-field">{{event.event_title}}</p>
+                <p class="content-field">{{event.event_type}}</p>
+                <p class="content-field">{{event.event_start_date}}</p>
+                <p class="content-field">{{event.event_location}}</p>
+                <p class="content-field">{{event.event_location_city}}</p>
+
+            </div>
+
+            <div class="event-options">
+                <a href="#"><img src={% static '/images/informacoes.png' %} alt="info"></a>
+                <a href="#"><img src={% static '/images/lapis.png' %} alt="info"></a>
+                <a href="#"><img src={% static '/images/lixo.png' %} alt="info"></a>
+                
+            </div>
+        </div>
+        {% endfor %}
+
+        <a class="button-new-event" href="{% url "create_activity" %}" >Adicionar novo evento</a>
+        
+    </section>
+    <footer>
+        <h3>&copy; Kaiser Inc.</h3>
+    </footer>
+
+    
+</body>
+</html>

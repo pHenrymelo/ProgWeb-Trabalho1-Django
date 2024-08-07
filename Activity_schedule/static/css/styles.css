@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: roboto;
+}
+
+body {
+    background-color: #092e20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+header{
+    color: aliceblue;
+    margin: 25px 0px;
+}
+
+section.content{
+    background-color: aliceblue;
+    padding: 20px;
+    min-width: 80vw;
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.6);
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event{
+    display: flex;
+    justify-content: center;
+    border: #000000 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #092e20;
+    color: #fff;
+    margin-bottom: 15px;
+    height: 40px;
+    font-size: 20px;
+    width: 99%;
+}
+
+.event-id{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+}
+.event-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.content-field-header{
+    width: 20%;
+    font-style: italic;
+    text-decoration: underline;
+}
+.content-field{
+    width: 20%;
+}
+
+.event-options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 0%;
+    width: 15%;
+}
+
+.event-options a {
+    margin: auto;
+    transition: 1s;
+}
+
+.event-options a:hover{
+    scale: 1.1;
+    transition: 1s;
+}
+
+.button-new-event{
+    display: flex;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 15px;
+    background-color: #092e20;
+    border: #000000 solid 2px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.button-new-event:hover{
+    scale: 1.05;
+    transition: 0.5s;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.6);
+}
+
+
+footer{
+    margin: 25px 0;
+    color: #fff;
+    font-style: italic;
+}
