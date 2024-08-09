@@ -1,0 +1,23 @@
+section.content {
+    width: 35%;
+}
+
+ul.details-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+    gap: 20px;
+    width: 75%;
+    height: 75%;
+    font-size: 18px;
+    list-style-type: none;
+    background-color: #092e20;
+    color: whitesmoke;
+    border: #000 solid 2px;
+    border-radius: 15px;
+    padding: 25px;
+    margin-block: 20px;
+    
+}

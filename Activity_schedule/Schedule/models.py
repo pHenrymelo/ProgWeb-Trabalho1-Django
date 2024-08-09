@@ -21,7 +21,7 @@ class Activity(models.Model):
     event_time = models.TimeField('Horario do evento')
     event_location = models.CharField('Endereço do evento')
     event_location_city = models.CharField('Cidade do evento')
-    event_is_free = models.BooleanField(default=False)
+    event_is_free = models.BooleanField('Entrada gratuita', default=False)
     event_voucher_price = models.DecimalField('Preço do Ingresso', decimal_places=2, default=0.00, max_digits=8)
     event_is_limitless_vacancies = models.BooleanField('Vagas ilimitadas', default=False)
     event_vacancies = models.IntegerField('Vagas', null=True, blank=True)

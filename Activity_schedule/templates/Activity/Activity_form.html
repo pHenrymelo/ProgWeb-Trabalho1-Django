@@ -1,13 +1,40 @@
 {% extends "Base.html" %}
 {% load static %}
 {% block title %} Nova Atividade {% endblock title %}
-{% block css %}<link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock css %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock css %}
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        function toggleFields() {
+            if ($('#id_event_is_free').is(':checked')) {
+                $('#id_event_voucher_price').closest('p').hide();
+            } else {
+                $('#id_event_voucher_price').closest('p').show();
+            }
+            
+            if ($('#id_event_is_limitless_vacancies').is(':checked')) {
+                $('#id_event_vacancies').closest('p').hide();
+            } else {
+                $('#id_event_vacancies').closest('p').show();
+            }
+        }
+
+        toggleFields();
+
+        $('#id_event_is_free, #id_event_is_limitless_vacancies').change(function() {
+            toggleFields();
+        });
+    });
+</script>
+{% endblock js %}
+
 {% block content %}
 
 {% if edit %}
-<h1 class="label-title">Editar Atividade:</h1>
+<h1 class="label-title">Editar Atividade</h1>
 {% else %}
-<h1 class="label-title">Nova Atividade:</h1>
+<h1 class="label-title">Nova Atividade</h1>
 {% endif %}
 
 <form method="post" action="
@@ -20,12 +47,15 @@
 
     {% csrf_token %}
     {{ form.as_p }}
+
+    <div class="form-actions">
     {% if edit %}
-    <button type="submit">Salvar alterações</button>
+    <button type="submit" class="confirmar">Salvar alterações</button>
     {% else %}
-    <button type="submit">Criar Atividade</button>
+    <button type="submit" class="confirmar">Criar Atividade</button>
     {% endif %}
-    <a href="{% url 'atividades' %}">Cancelar</a>
+    <a href="{% url 'atividades' %}" class="cancelar">Cancelar</a>
+    </div>
 </form> 
 
 {%endblock content %}

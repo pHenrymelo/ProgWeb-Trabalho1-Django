@@ -1,12 +1,12 @@
 {% extends "Base.html" %}
 {% load static %}
 {% block title %} Agenda de atividades {% endblock title %}
-{% block css %} <link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock css %}
+{% block css %} <link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock css %}
 {% block content %}
 
-    <h1 class="label-title">{{activity}}</h1>
+    <h1 class="label-title">Detalhes do evento: <br> {{activity}}</h1>
 
-    <ul>
+    <ul class="details-list">
         <li>Tipo: {{activity.event_type}}</li>
         <li>Data de início: {{activity.event_start_date}}</li>
         <li>Data de fim: {{activity.event_end_date}}</li>
@@ -26,7 +26,7 @@
         {% endif %}
     </ul>
 
-    <a href="{% url 'atividades' %}">Voltar</a>
+    <a href="{% url 'atividades' %}" class="back">Voltar</a>
         
 
 {%endblock content %}
