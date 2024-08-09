@@ -1,0 +1,31 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %} Nova Atividade {% endblock title %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock css %}
+{% block content %}
+
+{% if edit %}
+<h1 class="label-title">Editar Atividade:</h1>
+{% else %}
+<h1 class="label-title">Nova Atividade:</h1>
+{% endif %}
+
+<form method="post" action="
+    {% if edit %}
+        {% url 'update' activity.id %}
+    {% else %}
+        {% url 'create' %}
+    {% endif %}
+    ">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if edit %}
+    <button type="submit">Salvar alterações</button>
+    {% else %}
+    <button type="submit">Criar Atividade</button>
+    {% endif %}
+    <a href="{% url 'atividades' %}">Cancelar</a>
+</form> 
+
+{%endblock content %}

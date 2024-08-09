@@ -1,0 +1,20 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %} Confirmar deleção {% endblock title %}
+{% block css %} <link rel="stylesheet" href="{% static 'css/delete.css' %}">{% endblock css %}
+{% block content %}
+<div id="delete-confirm">
+    <h1 class="label-title">Confirmar Deleção</h1>
+    <p id="confirm-delete-text">O evento: "{{ activity }}" será deletado permanentemente. Deseja mesmo deletar o evento?</p>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-actions">
+        <button type="submit" class="confirmar">Sim, deletar</button>
+        <a href="{% url 'atividades' %}" class="cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+    
+
+{% endblock content %}

@@ -23,6 +23,7 @@ class Activity(models.Model):
     event_location_city = models.CharField('Cidade do evento')
     event_is_free = models.BooleanField(default=False)
     event_voucher_price = models.DecimalField('Preço do Ingresso', decimal_places=2, default=0.00, max_digits=8)
+    event_is_limitless_vacancies = models.BooleanField('Vagas ilimitadas', default=False)
     event_vacancies = models.IntegerField('Vagas', null=True, blank=True)
     
     def __str__(self):
@@ -31,4 +32,6 @@ class Activity(models.Model):
     def save(self, *args, **kwargs):
         if self.event_is_free:
             self.event_voucher_price = 0
+        if self.event_is_limitless_vacancies:
+            self.event_vacancies = None
         super().save(*args, **kwargs) 
