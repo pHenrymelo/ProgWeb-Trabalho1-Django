@@ -6,9 +6,9 @@ class ActivityForm(forms.ModelForm):
         model = Activity
         fields = ['event_title',
                   'event_type',
+                  'event_time',
                   'event_start_date',
                   'event_end_date',
-                  'event_time',
                   'event_location',
                   'event_location_city',
                   'event_is_free',

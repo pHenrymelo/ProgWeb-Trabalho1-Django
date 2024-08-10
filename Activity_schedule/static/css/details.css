@@ -1,5 +1,5 @@
 section.content {
-    width: 35%;
+    width: 600px;
 }
 
 ul.details-list {
@@ -20,4 +20,40 @@ ul.details-list {
     padding: 25px;
     margin-block: 20px;
     
+}
+
+@media(992px <= width <= 1199px) {
+    section.content {
+        width: 550px;
+    }
+    ul.details-list{
+        font-size: 16px;
+    }
+}
+
+@media(768px <= width <= 991px) {
+    section.content {
+        width: 500px;
+    }
+    ul.details-list{
+        font-size: 14px;
+    }
+}
+
+@media(426px <= width <= 767px) {
+    section.content {
+        width: 425px;
+    }
+    ul.details-list{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 425px) {
+    section.content {
+        width: 90%;
+    }
+    ul.details-list{
+        font-size: 10px;
+    }
 }

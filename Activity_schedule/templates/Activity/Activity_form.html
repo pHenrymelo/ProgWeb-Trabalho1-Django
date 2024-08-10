@@ -25,8 +25,15 @@
         $('#id_event_is_free, #id_event_is_limitless_vacancies').change(function() {
             toggleFields();
         });
+
+        document.getElementById('submit-button').addEventListener('click', function() {
+            document.getElementById('activity-form').submit();
+        });
+        
     });
+
 </script>
+
 {% endblock js %}
 
 {% block content %}
@@ -37,7 +44,7 @@
 <h1 class="label-title">Nova Atividade</h1>
 {% endif %}
 
-<form method="post" action="
+<form id="activity-form" method="post" action="
     {% if edit %}
         {% url 'update' activity.id %}
     {% else %}
@@ -48,14 +55,16 @@
     {% csrf_token %}
     {{ form.as_p }}
 
-    <div class="form-actions">
+    
+</form> 
+
+<div class="form-actions">
     {% if edit %}
-    <button type="submit" class="confirmar">Salvar alterações</button>
+    <button type="button" class="confirmar" id="submit-button">Salvar alterações</button>
     {% else %}
-    <button type="submit" class="confirmar">Criar Atividade</button>
+    <button type="button" class="confirmar" id="submit-button">Criar Atividade</button>
     {% endif %}
     <a href="{% url 'atividades' %}" class="cancelar">Cancelar</a>
-    </div>
-</form> 
+</div>
 
 {%endblock content %}

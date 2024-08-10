@@ -1,6 +1,6 @@
 section.content {
-    width: 35%;
-    height: 50vh;
+    width: 600px;
+    height: 400px;
 }
 
 #delete-confirm {
@@ -21,3 +21,53 @@ section.content {
 
 }
 
+@media(992px <= width <= 1199px) {
+    section.content {
+        width: 550px;
+       
+    }
+    #confirm-delete-text {
+        font-size: 16px;
+    }
+}
+
+@media(768px <= width <= 991px) {
+    section.content {
+        width: 500px;
+        ;
+    }
+    #confirm-delete-text {
+        font-size: 14px;
+    }
+}
+
+@media(426px <= width <= 767px) {
+    section.content {
+        width: 425px;
+        
+    }
+    #confirm-delete-text {
+        font-size: 12px;
+    }
+}
+
+/* @media(376px <= width <= 425px) {
+    section.content {
+        width: 400px;
+        
+    }
+    #confirm-delete-text {
+        font-size: 12px;
+    }
+} */
+
+@media(max-width: 425px) {
+    section.content {
+        width: 90%;
+        
+    }
+
+    #confirm-delete-text {
+        font-size: 10px;
+    }
+}

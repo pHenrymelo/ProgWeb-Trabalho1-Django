@@ -1,16 +1,17 @@
 section.content {
-    width: 35%;
+    width: 600px;
 }
 
 form {
     width: 75%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: self-start;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Define 2 colunas de tamanho igual */
+    grid-template-rows: auto auto; /* Define 2 linhas automáticas */
+    gap: 20px; /* Espaçamento entre os elementos */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: center; /* Alinha os itens horizontalmente ao centro */
+    text-align: center; /* Centraliza o texto dentro dos elementos */
 }
 
 form p {
@@ -44,6 +45,10 @@ form select {
     padding: 5px;
     background-color: #092e20;
     color: whitesmoke;
+}
+
+p:has(#id_event_title) {
+    grid-column: span 2;
 }
 
 input#id_event_is_free {
@@ -124,4 +129,40 @@ label[for="id_event_is_free"] {
 }
 label[for="id_event_is_limitless_vacancies"] {
     width: auto;
+}
+
+@media(426px <= width <= 767px) {
+    section.content {
+        width: 400px;
+    }
+
+    form {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+}
+
+@media(max-width: 425px) {
+    section.content {
+        width: 90%;
+    }
+
+    form {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+    }
+
 }
