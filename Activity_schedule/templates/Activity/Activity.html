@@ -1,0 +1,32 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %} Agenda de atividades {% endblock title %}
+{% block css %} <link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock css %}
+{% block content %}
+
+    <h1 class="label-title">Detalhes do evento: <br> {{activity}}</h1>
+
+    <ul class="details-list">
+        <li>Tipo: {{activity.event_type}}</li>
+        <li>Data de início: {{activity.event_start_date}}</li>
+        <li>Data de fim: {{activity.event_end_date}}</li>
+        <li>Hora de início: {{activity.event_time}}</li>
+        <li>Local: {{activity.event_location}}</li>
+        <li>Cidade: {{activity.event_location_city}}</li>
+
+        {% if activity.event_is_free %}
+            <li>Entrada gratuita</li>
+        {% else %}
+            <li>Preço do ingresso: R${{activity.event_voucher_price}} </li>
+        {% endif %}
+        {% if activity.event_is_limitless_vacancies %}
+            <li>Vagas ilimitadas</li>
+        {% else %}
+            <li>Vagas: {{activity.event_vacancies}}</li>
+        {% endif %}
+    </ul>
+
+    <a href="{% url 'atividades' %}" class="back">Voltar</a>
+        
+
+{%endblock content %}

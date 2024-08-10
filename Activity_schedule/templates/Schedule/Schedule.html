@@ -1,0 +1,79 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %} Agenda de atividades {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/activitys.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+{% endblock css %}
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+{% endblock js %}
+
+{% block content %}
+
+<h1 class="label-title">Atividades agendadas</h1>
+
+<div class="event">
+    <div class="event-id">
+        <h3>#</h3>
+    </div>
+    
+    <div class="event-main">
+
+        <h3 class="content-field-header">Titulo</h3>
+        <h3 class="content-field-header">Tipo</h3>
+        <h3 class="content-field-header">Data de inicio</h3>
+        <h3 class="content-field-header">Local</h3>
+        <h3 class="content-field-header">Cidade</h3>
+
+    </div>
+
+    <div class="event-options">
+        <h3>Ações</h3>
+    </div>
+</div>
+{% for event in activitys %}
+<div class="event">
+    <div class="event-id">
+        {{event.id}}
+    </div>
+    <div class="event-main">
+        
+        <p class="content-field">{{event.event_title}}</p>
+        <p class="content-field">{{event.event_type}}</p>
+        <p class="content-field">{{event.event_start_date}}</p>
+        <p class="content-field">{{event.event_location}}</p>
+        <p class="content-field">{{event.event_location_city}}</p>
+
+    </div>
+
+    <div class="event-options">
+        <a href="{% url "read" event.id %}"><img src={% static '/images/informacoes.png' %} alt="info"></a>
+        <a href="{% url "update" event.id %}"><img src={% static '/images/lapis.png' %} alt="info"></a>
+        <a href="{% url "delete" event.id %}"><img src={% static '/images/lixo.png' %} alt="info"></a>
+        
+    </div>
+</div>
+{% endfor %}
+
+<a class="button-new-event" href="{% url "create" %}" >Adicionar novo evento</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            {% if messages %}
+                {% for message in messages %}
+                    toastr.options = {
+                        "closeButton": true,
+                        "positionClass": "toast-top-right",
+                        "timeOut": 5000,
+                    };
+                    toastr["{{ message.tags }}"]("{{ message|escapejs }}");
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
+
+{% endblock content %}

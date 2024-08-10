@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %} Sobre {% endblock title %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock css %}
+{% block content %}
+<h1 class="label-title">Sobre o projeto</h1>
+<div class="about-content">
+
+    <div class="about-img">
+        <img src="{% static 'images/favicon.ico' %}" alt="About">
+    </div>
+
+    <div class="about-text-container">
+    <p class="about-text">Este projeto é uma aplicação web simples desenvolvida na disciplina de programação web. Esta aplicação consiste em uma agenda de eventos, desenvolvida com o framework Django, HTML5, CSS3 e Javascript. Em resumo, o projeto é um CRUD (Create, Read, Update, Delete) de uma agenda de eventos, que permite aos usuários adicionar, visualizar, editar e excluir eventos.</p>
+    </div>
+</div>
+{% endblock content %}

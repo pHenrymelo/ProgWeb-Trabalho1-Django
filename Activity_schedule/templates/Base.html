@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href={% static "images/favicon.ico" %}>
+    <link rel="stylesheet" href={% static "css/styles.css" %}>
+    <script src={% static "js/scripts.js" %}></script>
+    {% block css %}{% endblock css %}
+    {% block js %}{% endblock js %}
+    <title>{% block title %} Agenda de atividades {% endblock title %}</title>
+</head>
+<body>
+    <header class="header">
+       <nav>
+            <div class="header-logo">
+                <img src={% static "images/favicon.ico" %} alt="logo">
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li><a href="{% url 'atividades' %}">Atividades</a></li>
+                    <li><a href="{% url 'create' %}">Nova Atividade</a></li>
+                    <li><a href="{% url 'about' %}">Sobre</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    <section class="content">
+        
+        {% block content %}{% endblock content %}
+        
+    </section>
+    <footer>
+        <h3>Todos os direitos reservados &copy; Kaiser Inc. | Desenvolvido por: Pedro Melo</h3>
+    </footer>
+
+    
+</body>
+</html>
