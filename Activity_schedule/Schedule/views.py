@@ -30,13 +30,13 @@ def create_activity(request):
     else:
         form = ActivityForm()   
         
-    return render(request, 'Activity/activity_form.html', {'form': form})
+    return render(request, 'Activity/Activity_form.html', {'form': form})
 
 def activity_details(request, pk):
     
     activity = get_object_or_404(Activity, pk=pk)
     
-    return render(request, 'activity/activity.html', {'activity': activity})
+    return render(request, 'activity/Activity.html', {'activity': activity})
 
 def edit_activity(request, pk):
     activity = get_object_or_404(Activity, pk=pk)
@@ -53,7 +53,7 @@ def edit_activity(request, pk):
             return redirect('atividades')
     else: 
         form = ActivityForm(instance=activity)
-    return render(request, 'activity/activity_form.html', {'form': form, 'edit': True, 'activity': activity})
+    return render(request, 'activity/Activity_form.html', {'form': form, 'edit': True, 'activity': activity})
 
 def delete_activity(request, pk):
     activity = get_object_or_404(Activity, pk=pk)
